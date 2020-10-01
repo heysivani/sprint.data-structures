@@ -46,6 +46,7 @@ class LinkedList {
         return object;
       }
     }
+    return null;
   }
 
   /*

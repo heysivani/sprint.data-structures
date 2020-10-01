@@ -32,9 +32,12 @@ class LinkedList {
   }
 
   removeHead() {
-    let tempHead = this.head;
+    let oldHead = this.head;
+    let tempHead = this.head.next;
     this.list.shift();
     this.list.unshift(tempHead);
+    this.head = tempHead;
+    return oldHead;
   }
 
   findNode(value) {

@@ -4,9 +4,36 @@ class Tree {
     this.children = [];
   }
 
-  addChild(value) {}
+  addChild(value) {
+    let child = new Tree(value);
+    this.children.push(child);
+    return child;
+  }
 
-  contains(value) {}
+  contains(root = this, value) {
+    /* if (root.children === null){
+      return false;
+    }
+    if (root.children.includes(value))
+
+  }
+*/
+
+    let finder = (tree) => {
+      for (let child in tree) {
+        if (value === value) {
+          return true;
+        }
+        if (child.children !== undefined) {
+          finder(tree.children);
+        }
+      }
+      console.log("return");
+      return false;
+    };
+    let result = finder(this);
+    return result;
+  }
 
   /*
 +-------------------------+
@@ -31,3 +58,5 @@ requirements for ALL data structures in this exercise.
 |X                               X
 |XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 */
+
+module.exports = Tree;

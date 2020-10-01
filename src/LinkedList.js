@@ -5,17 +5,45 @@ function Node(value) {
 
 class LinkedList {
   constructor(headValue) {
+    this.list = [];
     if (headValue !== undefined) {
       this.head = new Node(headValue);
       this.tail = this.head;
     }
+    if (headValue === undefined) {
+      this.tail;
+      this.head;
+    }
   }
 
-  appendToTail(value) {}
+  appendToTail(value) {
+    if (this.list.length === 0) {
+      let newNode = new Node(value);
+      this.list.push(newNode);
+      this.tail = newNode;
+      this.head = this.tail;
+      return this.tail;
+    }
+    let newNode = new Node(value);
+    this.list.push(newNode);
 
-  removeHead() {}
+    this.tail = newNode;
+    return this.tail;
+  }
 
-  findNode(value) {}
+  removeHead() {
+    let tempHead = this.head;
+    this.list.shift();
+    this.list.unshift(tempHead);
+  }
+
+  findNode(value) {
+    for (let object of this.list) {
+      if (object.value === value) {
+        return object;
+      }
+    }
+  }
 
   /*
 +-------------------------+

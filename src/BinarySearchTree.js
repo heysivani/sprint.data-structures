@@ -14,7 +14,7 @@ class BinarySearchTree {
       this.left = child;
     }
 
-    return child;
+    return this;
   }
 
   contains(value) {
@@ -46,3 +46,4 @@ class BinarySearchTree {
 |X                               X
 |XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 */
+module.exports = BinarySearchTree;

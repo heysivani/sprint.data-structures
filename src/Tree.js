@@ -10,29 +10,23 @@ class Tree {
     return child;
   }
 
-  contains(root = this, value) {
-    /* if (root.children === null){
-      return false;
-    }
-    if (root.children.includes(value))
-
-  }
-*/
+  contains(value) {
+    let flag = false;
 
     let finder = (tree) => {
-      for (let child in tree) {
-        if (value === value) {
-          return true;
-        }
-        if (child.children !== undefined) {
-          finder(tree.children);
+      if (tree.value === value) {
+        flag = true;
+        return;
+      }
+      if (tree.children.length !== 0) {
+        for (let subTree of tree.children) {
+          finder(subTree);
         }
       }
-      console.log("return");
-      return false;
+      return;
     };
-    let result = finder(this);
-    return result;
+    finder(this);
+    return flag;
   }
 
   /*

@@ -57,6 +57,25 @@ class BinarySearchTree {
     finder(this);
     return flag;
   }
+
+  traverseDepthFirstInOrder(callback) {
+    const traverse = (tree) => {
+      if (tree.left !== null) {
+        traverse(tree.left);
+      }
+
+      callback(tree);
+
+      if (tree.right !== null) {
+        traverse(tree.right);
+      }
+
+      return;
+    };
+
+    traverse(this);
+    return undefined;
+  }
 }
 
 /*

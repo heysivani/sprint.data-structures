@@ -10,7 +10,13 @@ class Graph {
   }
 
   removeNode(value) {
-    this.nodes[value] = undefined;
+    for (let element in this.nodes) {
+      if (this.nodes[element].includes(value)) {
+        let integer = parseInt(element);
+        this.removeEdge(integer, value);
+      }
+    }
+    delete this.nodes[value];
     return undefined;
   }
 
@@ -21,6 +27,19 @@ class Graph {
     return false;
   }
 
+  removeEdge(v1, v2) {
+    for (let i = 0; i < this.nodes[v1].length; i++) {
+      if (this.nodes[v1][i] === v2) {
+        this.nodes[v1].splice(i, 1);
+      }
+      for (let i = 0; i < this.nodes[v2].length; i++) {
+        if (this.nodes[v2][i] === v1) {
+          this.nodes[v2].splice(i, 1);
+        }
+      }
+      return undefined;
+    }
+  }
   addEdge(v1, v2) {
     if (this.contains(v1) && this.contains(v2)) {
       if (!this.nodes[v1].includes(v2)) {
@@ -34,7 +53,16 @@ class Graph {
 
     return "Invalid node value";
   }
-  hasEdge() {}
+
+  hasEdge(v1, v2) {
+    if (this.nodes[v1].includes(v2)) {
+      return true;
+    }
+    if (this.nodes[v2].includes(v1)) {
+      return true;
+    }
+    return false;
+  }
 }
 module.exports = Graph;
 

@@ -33,17 +33,6 @@ class BinarySearchTree {
     recurser(this);
     return this;
   }
-  // insert(value) {
-  //   let child = new BinarySearchTree(value);
-  //   if (value > this.value) {
-  //     this.right = child;
-  //   }
-  //   if (value < this.value) {
-  //     this.left = child;
-  //   }
-
-  //   return this;
-  // }
 
   contains(value) {
     let flag = false;
@@ -53,9 +42,14 @@ class BinarySearchTree {
         flag = true;
         return;
       }
-      if (tree.children.length !== 0) {
-        for (let subTree of tree.children) {
-          finder(subTree);
+      if (tree.value > value) {
+        if (tree.left !== null) {
+          finder(tree.left);
+        }
+      }
+      if (tree.value < value) {
+        if (tree.right !== null) {
+          finder(tree.right);
         }
       }
       return;

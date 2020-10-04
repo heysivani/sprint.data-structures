@@ -5,48 +5,54 @@ function Node(value) {
 
 class LinkedList {
   constructor(headValue) {
-    this.list = [];
     if (headValue !== undefined) {
       this.head = new Node(headValue);
       this.tail = this.head;
     }
     if (headValue === undefined) {
-      this.tail;
       this.head;
+      this.tail;
     }
   }
 
   appendToTail(value) {
-    if (this.list.length === 0) {
-      let newNode = new Node(value);
-      this.list.push(newNode);
-      this.tail = newNode;
-      this.head = this.tail;
-      return this.tail;
-    }
     let newNode = new Node(value);
-    this.list.push(newNode);
 
-    this.tail = newNode;
+    // if there is an initial value
+    if (this.head !== undefined) {
+      let oldTail = this.tail;
+      this.tail = newNode;
+      oldTail.next = newNode;
+    } else {
+      // if no initial value
+      this.head = newNode;
+      this.tail = newNode;
+    }
     return this.tail;
   }
 
   removeHead() {
-    let oldHead = this.head;
-    let tempHead = this.head.next;
-    this.list.shift();
-    this.list.unshift(tempHead);
-    this.head = tempHead;
-    return oldHead;
+    let removedHead = this.head;
+    this.head = this.head.next;
+    return removedHead;
   }
 
   findNode(value) {
-    for (let object of this.list) {
-      if (object.value === value) {
-        return object;
+    let foundNode = null;
+
+    let finder = (node) => {
+      if (node.value === value) {
+        foundNode = node;
+        return;
+      } else if (node.next === null) {
+        return;
+      } else {
+        finder(node.next);
       }
-    }
-    return null;
+    };
+
+    finder(this.head);
+    return foundNode;
   }
 
   /*

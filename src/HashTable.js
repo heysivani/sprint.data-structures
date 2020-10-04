@@ -36,4 +36,9 @@ module.exports = HashTable;
 |X   of the above functions?     X
 |X                               X
 |XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+constructor: constant
+insert: linear
+retrieve: linear
+remove: linear
 */

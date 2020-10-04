@@ -73,4 +73,12 @@ module.exports = Graph;
 |X   of the above functions?     X
 |X                               X
 |XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+constructor: constant
+addNode: constant
+removeNode: quartic
+contains: constant
+addEdge: constant
+removeEdge: quadratic
+hasEdge: linear
 */

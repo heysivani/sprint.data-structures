@@ -95,6 +95,12 @@ requirements for ALL data structures in this exercise.
 |X   of the above functions?     X
 |X                               X
 |XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+constructor: constant
+addChild: constant
+contains: quadratic
+remove: quartic
+findParent: quadratic
 */
 
 module.exports = Tree;

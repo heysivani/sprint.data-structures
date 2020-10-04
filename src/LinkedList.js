@@ -80,4 +80,11 @@ module.exports = LinkedList;
 |X   of the above functions?     X
 |X                               X
 |XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Node: constant
+constructor: constant
+appendToTail: constant
+removeHead: constant
+findNode: linear
+
 */

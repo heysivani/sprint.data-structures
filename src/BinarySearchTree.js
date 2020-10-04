@@ -86,5 +86,10 @@ class BinarySearchTree {
 |X   of the above functions?     X
 |X                               X
 |XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+constructor: constant
+insert: linear
+contains: linear
+traverseDepthFirstInOrder: linear
 */
 module.exports = BinarySearchTree;

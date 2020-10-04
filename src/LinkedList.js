@@ -5,14 +5,8 @@ function Node(value) {
 
 class LinkedList {
   constructor(headValue) {
-    if (headValue !== undefined) {
-      this.head = new Node(headValue);
-      this.tail = this.head;
-    }
-    if (headValue === undefined) {
-      this.head;
-      this.tail;
-    }
+    this.head = headValue !== undefined ? new Node(headValue) : undefined;
+    this.tail = headValue !== undefined ? this.head : undefined;
   }
 
   appendToTail(value) {

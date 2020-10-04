@@ -19,8 +19,11 @@ class HashTable {
 
   remove(key) {
     const idx = simpleHash(key, this.limit);
-    this.storage.set(idx, null);
-    return true;
+    if (this.storage.get(idx) !== null) {
+      this.storage.set(idx, null);
+      return true;
+    }
+    return false;
   }
 }
 
